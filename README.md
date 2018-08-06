@@ -26,6 +26,12 @@ Set environment variables:
 cp .env.example .env
 ```
 
+Populate the database:
+
+```bash
+npm run seeder
+```
+
 ## Running Locally
 
 ```bash
