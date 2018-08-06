@@ -7,6 +7,6 @@ const { search } = require('../services/search.service');
  */
 exports.search = async (req, res, next) => {
     search(req.query.search)
-        .then(req => res.json({output: req}))
+        .then(req => res.json({status: true, text: req}))
         .catch(err => next(err))
 };

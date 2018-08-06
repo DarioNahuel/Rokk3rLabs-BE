@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    
+    <div class="container">
+        <div class="row">
+            <h2>Rokk3rLabs Challenge</h2>
+            <div class="search">
+                <div class="col-md-8">
+                    <input type="text" name="search" class="form-control input-sm" maxlength="64" placeholder="Search" />
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-sm js-search">Search</button>
+                </div>
+            </div>
+            <div class="search-content">
+                
+            </div>
+        </div>
+    </div>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.js-search').on('click', function() {
+                $.get("/v1/search?search=" + $('input[name=search]').val(), function( data ) {
+                    $('.search-content').empty();
+                    $('.search-content').append(data.text);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
